@@ -20,7 +20,7 @@ const loadup = async () => {
   await faceapi.nets.faceExpressionNet.loadFromUri('models');
   console.log('finished loading models');
   loaded = true;
-  ready.textContent = "SMILE 😊";
+  ready.textContent = "SMILE AND TURN UP YOUR VOLUME 😊";
 }
 
 

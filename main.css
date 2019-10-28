@@ -1,6 +1,7 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: sans-serif;
 }
 
 #container {
@@ -9,6 +10,7 @@ body {
 	height: 375px;
   margin-top: 50vh;
   transform: translateY(-240px);
+  text-align: center;
 }
 #videoElement {
 	width: 500px;
