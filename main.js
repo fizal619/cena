@@ -1,6 +1,7 @@
 const video = document.querySelector("#videoElement");
 const song = document.querySelector("#intro");
 const body = document.querySelector("body");
+const ready = document.querySelector("#ready");
 let loaded = false;
 
 if (navigator.mediaDevices.getUserMedia) {
@@ -15,15 +16,17 @@ if (navigator.mediaDevices.getUserMedia) {
 
 const loadup = async () => {
   console.log('loading models');
-  await faceapi.nets.ssdMobilenetv1.loadFromUri('/models')
-  await faceapi.nets.faceExpressionNet.loadFromUri('/models')
+  await faceapi.nets.ssdMobilenetv1.loadFromUri('models');
+  await faceapi.nets.faceExpressionNet.loadFromUri('models');
   console.log('finished loading models');
   loaded = true;
+  ready.textContent = "SMILE 😊";
 }
 
 
 const checkFace = async () => {
   const face = await faceapi.detectSingleFace(video).withFaceExpressions();
+  if (!face) return;
   let expression = "";
   let weight;
   for (let emotion in face.expressions) {
